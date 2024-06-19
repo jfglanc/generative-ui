@@ -1,6 +1,8 @@
 // Defines an API endpoint that processes user input and chat history by sending it to a remote server 
 // using a RemoteRunnable and streams the response back to the client.
 // RemoteRunnable is a class from LangChain that represents a unit of work that can be executed remotely.
+// This is how the frontend talks to the LangServe endpoint!
+// https://js.langchain.com/v0.1/docs/ecosystem/langserve/
 
 import { RemoteRunnable } from "@langchain/core/runnables/remote";
 import { exposeEndpoints, streamRunnableUI } from "@/utils/server";
