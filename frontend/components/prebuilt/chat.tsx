@@ -1,3 +1,8 @@
+// Chat interface where users can input text and upload files. 
+// Upon submitting input, it processes the data, interacts with a remote AI model to get responses, 
+// and updates the chat history and UI accordingly.
+
+
 "use client";
 
 import { useState } from "react";
@@ -76,8 +81,9 @@ export default function Chat() {
       </div>,
     );
 
-    // consume the value stream to obtain the final string value
-    // after which we can append to our chat history state
+    // processes the AI agent's last event and updates the chat history state 
+    // based on whether the event contains a model invocation result or a tool result.
+    // adds the user's input and the AI's response to the history accordingly
     (async () => {
       let lastEvent = await element.lastEvent;
       if (Array.isArray(lastEvent)) {

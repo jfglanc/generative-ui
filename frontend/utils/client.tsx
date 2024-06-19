@@ -1,3 +1,6 @@
+// Set up a context to share actions across the Next.js application
+// Expose actions defined via the exposeEndpoints function and make them available in client components
+
 "use client";
 
 import { ReactNode, useContext } from "react";

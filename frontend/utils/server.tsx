@@ -1,3 +1,5 @@
+// Set up server-side functionality for streaming AI model responses and displaying UI components in a Next.js application.
+
 import "server-only";
 import { AIProvider } from "./client";
 import { ReactNode } from "react";
@@ -19,6 +21,8 @@ type ToolComponentMap = {
   [tool: string]: ToolComponent;
 };
 
+
+// Define a map of prebuilt components for different tools
 const TOOL_COMPONENT_MAP: ToolComponentMap = {
   "github-repo": {
     loading: (props?: any) => <GithubLoading {...props} />,
@@ -40,6 +44,13 @@ const TOOL_COMPONENT_MAP: ToolComponentMap = {
  *
  * @param runnable
  * @returns React node which can be sent to the client
+ */
+
+/**
+The streamRunnableUI function processes and streams events from a remote AI model or workflow, 
+dynamically updating the user interface based on these events. 
+It handles different types of events to update the UI with loading states and final results for various tools, 
+manages text streams for AI messages, and ultimately returns the constructed UI and the last event's output.
  */
 export function streamRunnableUI<RunInput, RunOutput>(
   runnable:
